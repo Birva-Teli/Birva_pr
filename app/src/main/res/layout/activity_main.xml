@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity"
+    android:id="@+id/relative">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="10"
+        android:columnCount="4">
+
+            <Button
+                android:id="@+id/btnRetrofit"
+                android:text="task 1"/>
+
+            <Button
+                android:id="@+id/btnNavigationDrawer"
+                android:text="task 2" />
+
+            <Button
+                android:id="@+id/btnConnectivityStatus"
+                android:text="task 3" />
+
+            <Button
+                android:id="@+id/btnimageViewer"
+                android:text="task 4"
+                />
+            <Button
+                android:id="@+id/btnCropImage"
+                android:text="task 5"
+                />
+            <Button
+                android:id="@+id/btn6"
+                android:text="task 6"/>
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btnRegisterListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginBottom="0dp"
+        android:text="Users List" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="41dp"
+        android:text="LOGOUT"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="41dp" />
+
+</RelativeLayout>
