@@ -11,6 +11,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 import example.com.birva_pr.OnOptionClickListener;
@@ -91,13 +93,15 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> implem
         protected FilterResults performFiltering(CharSequence charSequence) {
             ArrayList<UserDetailsBean> filteredList=new ArrayList<>();
 
+            Gson gson=new Gson();
+
             if(charSequence==null||charSequence.length()==0){
                 filteredList.addAll(searchedUsers);
             }
             else {
                 String filteredPattern=charSequence.toString().toLowerCase().trim();
                 for(UserDetailsBean item:searchedUsers){
-                    if(item.getName().toLowerCase().contains(filteredPattern)){
+                    if(item.serialize().contains(filteredPattern)){
                         filteredList.add(item);
                     }
                 }

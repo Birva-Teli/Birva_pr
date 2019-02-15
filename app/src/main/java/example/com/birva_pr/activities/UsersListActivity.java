@@ -98,20 +98,24 @@ public class UsersListActivity extends AppCompatActivity {
         MenuItem searchItem=menu.findItem(R.id.searchUsers);
         android.support.v7.widget.SearchView searchView=(android.support.v7.widget.SearchView) searchItem.getActionView();
         searchView.setQueryHint("Search Here...");
+
         Field searchField = null;
         try {
             searchField = SearchView.class.getDeclaredField("mCloseButton");
-        } catch (NoSuchFieldException e) {
+        }
+        catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
         searchField.setAccessible(true);
         ImageView closeBtn = null;
         try {
             closeBtn = (ImageView) searchField.get(searchView);
-        } catch (IllegalAccessException e) {
+        }
+        catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         closeBtn.setImageResource(R.drawable.cancel_search);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
           @Override
           public boolean onQueryTextSubmit(String query) {
@@ -149,16 +153,3 @@ public class UsersListActivity extends AppCompatActivity {
         }
     }
 }
-/*
-*   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                myadapter.getFilter().filter(s);
-                return false;
-            }
-        });*/

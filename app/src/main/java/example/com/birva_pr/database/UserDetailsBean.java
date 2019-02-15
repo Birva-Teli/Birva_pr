@@ -7,6 +7,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import example.com.birva_pr.helpers.AppConstants;
 
 @Entity(tableName = AppConstants.USER_TBL)
@@ -143,5 +146,14 @@ public class UserDetailsBean implements Parcelable {
                 ", gender='" + gender + '\'' +
                 ", mobNo='" + mobNo + '\'' +
                 '}';
+    }
+    public String serialize() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+    static public UserDetailsBean create(String serializedData) {
+        Gson gson = new GsonBuilder().serializeNulls().create();
+        return gson.fromJson(serializedData, UserDetailsBean.class);
     }
 }
