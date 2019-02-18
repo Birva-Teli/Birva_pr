@@ -1,6 +1,5 @@
-package example.com.birva_pr.database;
+package example.com.birva_pr.beans;
 
-import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 

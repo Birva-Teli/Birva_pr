@@ -2,16 +2,11 @@ package example.com.birva_pr;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.FileObserver;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -37,7 +32,6 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -45,7 +39,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.birva_pr.adapter.ImageAdapter;
 
-import example.com.birva_pr.database.ImageDetailsBean;
+import example.com.birva_pr.beans.ImageDetailsBean;
 import example.com.birva_pr.helpers.AppConstants;
 import example.com.birva_pr.helpers.AppUtils;
 

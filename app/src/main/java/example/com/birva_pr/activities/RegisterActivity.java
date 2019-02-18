@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.birva_pr.R;
 import example.com.birva_pr.database.AppDatabase;
-import example.com.birva_pr.database.UserDetailsBean;
+import example.com.birva_pr.beans.UserDetailsBean;
 import example.com.birva_pr.helpers.AppConstants;
 
 public class RegisterActivity extends AppCompatActivity {

@@ -5,6 +5,8 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import example.com.birva_pr.beans.UserDetailsBean;
+
 /**
  * -------------------Room DB--------------------
  * Created by android3 on 12/12/17.

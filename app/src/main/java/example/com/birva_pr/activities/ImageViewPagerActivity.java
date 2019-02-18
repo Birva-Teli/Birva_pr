@@ -15,9 +15,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.birva_pr.R;
 import example.com.birva_pr.adapter.CustomSwipeAdapter;
-import example.com.birva_pr.database.ImageDetailsBean;
+import example.com.birva_pr.beans.ImageDetailsBean;
 import example.com.birva_pr.helpers.AppConstants;
-import example.com.birva_pr.helpers.AppUtils;
 
 public class ImageViewPagerActivity extends AppCompatActivity {
 

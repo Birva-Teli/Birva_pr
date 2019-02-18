@@ -1,22 +1,13 @@
 package example.com.birva_pr.adapter;
 
 import android.content.Context;
-import android.net.Uri;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -24,9 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import example.com.birva_pr.R;
-import example.com.birva_pr.activities.ImageViewPagerActivity;
-import example.com.birva_pr.database.ImageDetailsBean;
-import example.com.birva_pr.helpers.AppConstants;
+import example.com.birva_pr.beans.ImageDetailsBean;
 
 public class CustomSwipeAdapter extends PagerAdapter {
     private Context context;

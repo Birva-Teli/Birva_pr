@@ -1,4 +1,4 @@
-package example.com.birva_pr.database;
+package example.com.birva_pr.beans;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -37,7 +37,7 @@ public class UserDetailsBean implements Parcelable {
 
     @ColumnInfo(name = "gyrg")
     private String gyrg;
-    //setter methods
+    
 
     public UserDetailsBean() {
 
@@ -89,6 +89,7 @@ public class UserDetailsBean implements Parcelable {
         }
     };
 
+    //setter methods
     public void setId(int id) {
         this.id = id;
     }

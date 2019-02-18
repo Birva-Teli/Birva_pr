@@ -24,7 +24,7 @@ import java.util.Collections;
 
 import example.com.birva_pr.R;
 import example.com.birva_pr.activities.ImageViewPagerActivity;
-import example.com.birva_pr.database.ImageDetailsBean;
+import example.com.birva_pr.beans.ImageDetailsBean;
 import example.com.birva_pr.helpers.AppConstants;
 import example.com.birva_pr.helpers.AppUtils;
 

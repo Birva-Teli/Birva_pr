@@ -10,8 +10,8 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+import example.com.birva_pr.beans.UserDetailsBean;
 import example.com.birva_pr.helpers.AppConstants;
-import retrofit2.http.DELETE;
 
 @Dao
 public interface UserDao {
