@@ -16,6 +16,7 @@ import example.com.birva_pr.MiteshFragment;
 import example.com.birva_pr.PranavFragment;
 import example.com.birva_pr.R;
 import example.com.birva_pr.SmeetFragment;
+import example.com.birva_pr.helpers.AppUtils;
 
 public class MainFragmentActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
@@ -69,29 +70,21 @@ public class MainFragmentActivity extends AppCompatActivity implements Navigatio
         switch(id) {
             case R.id.birva:
                 replaceFragment(new MainFragment());
-
                 break;
 
             case R.id.barkha:
-
                 replaceFragment(new BarkhaFragment());
-
                 break;
 
             case R.id.mitesh:
-
                 replaceFragment(new MiteshFragment());
-
                 break;
 
             case R.id.smeet:
-
                 replaceFragment(new SmeetFragment());
-
                 break;
 
             case R.id.Pranav:
-
                 replaceFragment(new PranavFragment());
                 break;
         }

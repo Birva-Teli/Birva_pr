@@ -10,6 +10,9 @@ import android.net.wifi.WifiManager;
 import java.util.HashSet;
 import java.util.Set;
 
+import example.com.birva_pr.MainFragment;
+import example.com.birva_pr.R;
+
 public class BroadCastReceiver extends BroadcastReceiver {
     private static final int TYPE_WIFI = 1;
     private static final int TYPE_MOBILE = 2;
@@ -21,10 +24,12 @@ public class BroadCastReceiver extends BroadcastReceiver {
     protected Boolean dataConnected;
     protected Boolean wifiConnected;
     protected String strConnectionMsg;
+    protected int intConnectivityStatus;
 
     public BroadCastReceiver() {
         listeners=new HashSet<ConnectivityReceiverListener>();
         strConnectionMsg="";
+        intConnectivityStatus= 0;
         wifiConnected=null;
         dataConnected=null;
     }
@@ -32,21 +37,25 @@ public class BroadCastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        AppUtils.showLog("receive called");
         connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         if(null != networkInfo) {
             if (getConnectivityStatus(context) == 1) {
+                AppUtils.showLog("connectivity status 1 is "+getConnectivityStatus(context));
                 wifiConnected = true;
                 strConnectionMsg = "WIFI connected";
+
             }
             else if (getConnectivityStatus(context) == 2) {
+                AppUtils.showLog("connectivity status 2 is "+getConnectivityStatus(context));
                 dataConnected = true;
                 strConnectionMsg = "DATA Connected";
             }
         }
         else
         {
+            AppUtils.showLog("connectivity status 3 is "+getConnectivityStatus(context));
             dataConnected = false;
             wifiConnected = false;
             strConnectionMsg = "WIFI or DATA not Connected";
@@ -55,8 +64,10 @@ public class BroadCastReceiver extends BroadcastReceiver {
     }
 
     private void notifyStateToAll( ) {
-        for(ConnectivityReceiverListener listener : listeners)
+        for(ConnectivityReceiverListener listener : listeners) {
+            AppUtils.showLog("listners " + listeners);
             notifyState(listener);
+        }
     }
 
     private void notifyState(ConnectivityReceiverListener listener) {
@@ -68,6 +79,7 @@ public class BroadCastReceiver extends BroadcastReceiver {
 
     public void addListener(ConnectivityReceiverListener l) {
         listeners.add(l);
+        AppUtils.showLog("lis "+listeners);
         notifyState(l);
     }
 
@@ -90,11 +102,6 @@ public class BroadCastReceiver extends BroadcastReceiver {
                 return TYPE_MOBILE;
         }
         return TYPE_NOT_CONNECTED;
-    }
-
-    public int getConnectedType()
-    {
-        return getConnectivityStatus(context);
     }
 
 }

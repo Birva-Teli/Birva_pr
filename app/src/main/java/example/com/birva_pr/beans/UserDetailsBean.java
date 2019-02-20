@@ -42,6 +42,7 @@ public class UserDetailsBean implements Parcelable {
     public UserDetailsBean() {
 
     }
+
     protected UserDetailsBean(Parcel in) {
         id = in.readInt();
         name = in.readString();

@@ -93,8 +93,6 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> implem
         protected FilterResults performFiltering(CharSequence charSequence) {
             ArrayList<UserDetailsBean> filteredList=new ArrayList<>();
 
-            Gson gson=new Gson();
-
             if(charSequence==null||charSequence.length()==0){
                 filteredList.addAll(searchedUsers);
             }

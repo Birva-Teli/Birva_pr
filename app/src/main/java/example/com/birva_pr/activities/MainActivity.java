@@ -22,6 +22,7 @@ import butterknife.OnClick;
 import example.com.birva_pr.ImagePickerActivity;
 import example.com.birva_pr.R;
 import example.com.birva_pr.helpers.AppConstants;
+import example.com.birva_pr.helpers.AppUtils;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -123,8 +124,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                         }
 
-                        Toast.makeText(getApplicationContext(), "you choose yes action for alertbox",
-                                Toast.LENGTH_SHORT).show();
+                        AppUtils.showLog("you choose yes action for alertbox");
                     }
                 })
                 .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {

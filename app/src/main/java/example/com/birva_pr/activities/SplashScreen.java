@@ -41,7 +41,7 @@ public class SplashScreen extends AppCompatActivity {
         }
         else
         {
-                i = new Intent(SplashScreen.this, IntroActivity.class);
+            i = new Intent(SplashScreen.this, IntroActivity.class);
         }
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 

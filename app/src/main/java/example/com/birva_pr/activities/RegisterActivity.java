@@ -65,7 +65,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     TextInputEditText etUpdateName,etUpdateEmail,etUpdatePass,etUpdateMob;
 
-
     private AppDatabase appDatabase;
 
     UserDetailsBean userDetailsBean;
@@ -85,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
             editTextPassword.setText(userDetailsBean.getPassword());
             editTextMobileNo.setText(userDetailsBean.getMobNo());
             editTextConfirmPassword.setText(userDetailsBean.getPassword());
+            registerButton.setText("Update User");
             switch (userDetailsBean.getGender())
             {
                 case AppConstants.GENDER_MALE:
@@ -103,19 +103,20 @@ public class RegisterActivity extends AppCompatActivity {
     public void onViewClicked() {
 
         String email = editTextEmail.getText().toString().trim();
-        String strPwd = editTextPassword.getText().toString().trim();
-        String strConfirmPwd = editTextConfirmPassword.getText().toString().trim();
         //validations
 
         if (!funValidateInput()) {
             return;
         }
-        if (appDatabase.userDao().isUserExist(editTextEmail.getText().toString())) {
-            inputEmail.setError(getString(R.string.err_msg_email_exist));
-            return;
+        if (appDatabase.userDao().isUserExist(email)) {
+            if(userDetailsBean==null) {
+                inputEmail.setError(getString(R.string.err_msg_email_exist));
+                return;
+            }
         }
-        if (userDetailsBean != null)
+        if (userDetailsBean != null) {
             doUpdateUser();
+        }
         else
             doRegister();
     }
@@ -157,8 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         switch (rgGender.getCheckedRadioButtonId()) {
             case -1:
-                Toast.makeText(this,
-                        "Please select Gender", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Please select Gender", Toast.LENGTH_SHORT).show();
                 return;
             case R.id.radioFemale:
                 userDetailsBean.setGender(AppConstants.GENDER_FEMALE);
@@ -178,6 +178,7 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean funValidateInput(){
         String email = editTextEmail.getText().toString().trim();
         String strPwd = editTextPassword.getText().toString().trim();
+        String phnNo = editTextMobileNo.getText().toString().trim();
         String strConfirmPwd = editTextConfirmPassword.getText().toString().trim();
         if(!isEmpty())
             return false;
@@ -185,6 +186,10 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         if(!validatePassword(strPwd)) {
             inputPassword.setError("Password Must be Alpha numeric & one capital latter required!");
+            return false;
+        }
+        if(!validatePhoneNo(phnNo)){
+            inputMobileNo.setError("enter valid Phone No.");
             return false;
         }
         if(!strPwd.equals(strConfirmPwd)) {
@@ -218,6 +223,11 @@ public class RegisterActivity extends AppCompatActivity {
         return pattern.matcher(email).matches();
     }
 
+    public boolean validatePhoneNo(String phn){
+        Pattern pattern1=Patterns.PHONE;
+
+        return pattern1.matcher(phn).matches();
+    }
 
 
     private void requestFocus(View view) {

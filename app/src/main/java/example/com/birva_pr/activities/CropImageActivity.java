@@ -89,8 +89,8 @@ public class CropImageActivity extends AppCompatActivity {
         if(Code==RESULT_OK){
             Glide.with(this)
                     .load(new File(Crop.getOutput(result).toString()))
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(ivSelectedImage);
+            ivSelectedImage.setImageURI(null);
             AppUtils.showLog("glide 1"+Crop.getOutput(result));
         }
         else if(Code==Crop.RESULT_ERROR){
