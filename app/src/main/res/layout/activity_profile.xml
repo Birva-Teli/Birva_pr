@@ -24,4 +24,5 @@
             android:background="@drawable/camera_circle" />
     </LinearLayout>
 
+
 </RelativeLayout>
