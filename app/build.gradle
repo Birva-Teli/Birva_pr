@@ -70,6 +70,10 @@ dependencies {
     implementation 'com.zhihu.android:matisse:0.5.1'
     //crop library
     implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
+    //implementation 'com.github.okaybroda:ImageZoom:1.1.0'
+
+    implementation 'com.otaliastudios:zoomlayout:1.5.1'
+
 }
 
 crashlytics {

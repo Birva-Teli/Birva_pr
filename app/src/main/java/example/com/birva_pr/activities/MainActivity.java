@@ -1,7 +1,6 @@
 package example.com.birva_pr.activities;
 
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,8 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btnRetrofit, R.id.btnNavigationDrawer, R.id.btnConnectivityStatus,
-            R.id.btnRegisterListView, R.id.btnLogout, R.id.btnimageViewer,R.id.btnCropImage})
+            R.id.btnRegisterListView, R.id.btnLogout, R.id.btnimageViewer,R.id.btnCropImage,R.id.btn6})
     public void onViewClicked(View view) {
         Intent i;
         switch (view.getId()) {
@@ -81,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnCropImage:
                 showDialog("Description", "Crop Image", 5);
                 break;
-
+            case R.id.btn6:
+                showDialog("Description","add View dynamically",6);
+                break;
             case R.id.btnRegisterListView:
                 i = new Intent(MainActivity.this, UsersListActivity.class);
                 startActivity(i);
@@ -121,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case 5:
                                 startActivity(new Intent(context, CropImageActivity.class));
+                                break;
+                            case 6:
+                                startActivity(new Intent(context, ZoomRecyclerView.class));
                                 break;
                         }
 
