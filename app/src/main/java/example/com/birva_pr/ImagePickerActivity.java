@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -62,6 +63,7 @@ public class ImagePickerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_picker);
         ButterKnife.bind(this);
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder(); StrictMode.setVmPolicy(builder.build());
         directory = getDir("template", Context.MODE_PRIVATE);
         recyclerImageView=(RecyclerView)findViewById(R.id.recyclerImageView);
 
@@ -206,10 +208,14 @@ public class ImagePickerActivity extends AppCompatActivity {
                 for (String str:
                         Matisse.obtainPathResult(data)) {
 
-                    String strImagePath=getImageUrlOfInternal(str);
-                    if(strImagePath.equals(""))
+                    //String strImagePath=getImageUrlOfInternal(str);
+
+                    if(str.equals(""))
                         continue;
-                    selectedImages.add(strImagePath);
+                    selectedImages.add(str);
+                    /*  if(strImagePath.equals(""))
+                        continue;
+                    selectedImages.add(strImagePath);*/
                 }
 
                 addDataToAdapter(selectedImages);
